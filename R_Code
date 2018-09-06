@@ -1,5 +1,4 @@
-# History files
-# Juan Fernandez PS5
+# Juan Fernandez Econometrics Project
 
 load("projectStar_noNA.Rdata")
 projectStar
