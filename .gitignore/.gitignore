@@ -1,0 +1,53 @@
+# History files
+# Juan Fernandez PS5
+
+load("projectStar_noNA.Rdata")
+projectStar
+
+# Question 2
+summary(projectStar$ssex)
+summary(projectStar$srace)
+summary(projectStar$schtypek)
+
+# Question 3
+ngfit_controlgender <- lm(formula = treadssk ~ cltypek + ssex, data = projectStar)
+mathfit_controlgender <- lm(formula = tmathssk ~ cltypek + ssex, data = projectStar)
+
+#Question 5
+# (a)
+projectStar_blackstudents <- subset(projectStar, subset = srace == "black")
+blackstudentfit <- lm(formula = tcombssk ~ cltypek, data = projectStar_blackstudents )
+summary(blackstudentfit)
+
+projectStar_whitestudents <- subset(projectStar, subset = srace == "white")
+whitreadingfit <- lm(formula = treadssk ~ cltypek, data = projectStar)
+mathfit <- lm(formula = tmathssk ~ cltypek, data = projectStar)
+
+# Question 4
+readiestudentfit <- lm(formula = tcombssk ~ cltypek, data = projectStar_whitestudents )
+summary(whitestudentfit)
+
+# (b)
+projectStar_poor <- subset(projectStar, suubset = sesk == "free lunch")
+poorstudentfit <- lm(formula = tcombssk ~ cltypek, data = projectStar_poor)
+summary(poorstudentfit)
+
+projectStar_nonpoor <- subset(projectStar, subset = sesk == "non-free lunch")
+nonpoorstudentfit <- lm(formula = tcombssk ~ cltypek, data = projectStar_nonpoor)
+summary(nonpoorstudentfit)
+
+
+# Question 6
+summary(whitestudentfit)
+summary(blackstudentfit)
+
+
+# Question 7
+# Compare teacher race  
+projectStar_whiteteacher <- subset(projectStar, subset = tracek == "white")
+whiteteacherfit <- lm(formula = tcombssk ~ cltypek, data = projectStar_whiteteacher)
+summary(whiteteacherfit)
+
+projectStar_blackteacher <- subset(projectStar, subset = tracek == "black")
+blackteacherfit <- lm(formula = tcombssk ~ cltypek, data = projectStar_blackteacher)
+summary(blackteacherfit)
